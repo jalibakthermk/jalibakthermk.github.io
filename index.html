@@ -132,7 +132,8 @@
   <symbol id="icon-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.55-2.5 5.55-5.55C21.97 6.01 17.46 2 12 2z"/></symbol>
   <symbol id="icon-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
   <symbol id="icon-road" viewBox="0 0 24 24"><path d="M4 21 9 3"/><path d="M20 21 15 3"/><path d="M12 4v2"/><path d="M12 10v3"/><path d="M12 17v4"/></symbol>
-  <symbol id="icon-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+  <symbol id="icon-beam" viewBox="0 0 24 24"><path d="M3 7h2.5a5 5 0 0 1 0 10H3z"/><path d="M13 11h4l4-3"/><path d="M13 14.5h8"/><path d="M13 18h8"/></symbol>
+  <symbol id="icon-code"viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
   <symbol id="icon-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
   <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
 </svg>
@@ -150,7 +151,7 @@
     <p class="intro">
       Optical design and validation for automotive lighting. These are web tools I build
       for everyday photometry and colorimetry work — headlamp ratings, road illuminance,
-      and signal-lamp colour checks.
+      beam synthesis and signal-lamp colour checks.
     </p>
     <div class="links">
       <a class="btn primary" href="https://github.com/jalibakthermk">
@@ -215,6 +216,21 @@
         <div class="card-links">
           <a href="https://github.com/jalibakthermk/Road-illuminate"><svg class="i sm"><use href="#icon-code"/></svg> Code</a>
           <a href="https://jalibakthermk.github.io/Road-illuminate/"><svg class="i sm"><use href="#icon-external"/></svg> Live demo</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-icon"><svg class="i lg"><use href="#icon-beam"/></svg></div>
+        <h3>beamSynth</h3>
+        <p>Synthetic low and high beam patterns that meet ECE requirements. Start from a customer road-requirement JSON or from beam parameters (max intensity, lumen, spread), then review the iso-candela view and road illumination.</p>
+        <div class="tags">
+          <span class="tag">Headlamps</span>
+          <span class="tag">ECE regulations</span>
+          <span class="tag">Beam synthesis</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/jalibakthermk/beamSynth"><svg class="i sm"><use href="#icon-code"/></svg> Code</a>
+          <a href="https://jalibakthermk.github.io/beamSynth/"><svg class="i sm"><use href="#icon-external"/></svg> Live demo</a>
         </div>
       </article>
 
