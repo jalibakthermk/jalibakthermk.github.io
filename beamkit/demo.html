@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>beamKit — component gallery</title>
+<meta name="theme-color" content="#0a0f2c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="beamkit.css">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="beamkit.js" defer></script>
+<style>
+  .gal { display: grid; gap: 16px; padding-top: 16px; padding-bottom: 24px; }
+  .gal h2.g { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin: 16px 0 0; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+  .swatch { border: 1px solid var(--cds-border-subtle); background: var(--cds-layer-01); }
+  .swatch div { height: 44px; border-bottom: 1px solid var(--cds-border-subtle); }
+  .swatch code { display: block; padding: 6px 8px; font-family: var(--font-mono); font-size: 11px; color: var(--cds-text-secondary); }
+  .icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; }
+  .icons div { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 4px; background: var(--cds-layer-01); border: 1px solid var(--cds-border-subtle); font-family: var(--font-mono); font-size: 11px; color: var(--cds-text-secondary); }
+  .icons .i { width: 24px; height: 24px; color: var(--cds-text-primary); }
+  .type p { margin: 6px 0; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="wrap">
+    <a class="shell-name" href="https://jalibakthermk.github.io/"><img src="favicon.svg" alt="" width="24" height="24"> beamKit <span class="crumb">· component gallery</span></a>
+    <div class="shell-actions">
+      <a href="https://jalibakthermk.github.io/"><svg class="i"><use href="#icon-grid"/></svg> <span class="lbl">Projects</span></a>
+      <button type="button" data-bk-theme aria-label="Toggle light and dark theme"><svg class="i sun"><use href="#icon-sun"/></svg><svg class="i moon"><use href="#icon-moon"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<header class="titleband">
+  <svg class="motif" viewBox="0 0 640 200" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <ellipse cx="420" cy="140" rx="210" ry="56"/><ellipse cx="420" cy="140" rx="150" ry="40"/><ellipse cx="420" cy="140" rx="92" ry="25"/><ellipse cx="420" cy="140" rx="44" ry="12"/>
+    <path class="cut" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M0 140H330L366 104H640"/>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">Design framework · IBM Carbon · IBM Plex</p>
+    <h1><b>beamKit</b> Component gallery <span class="ver">v1.0</span></h1>
+    <p class="sub">Every building block of the lighting-tool pages, in one place. Toggle the theme in the top bar to check both modes.</p>
+  </div>
+</header>
+
+<main class="wrap gal">
+  <h2 class="g">Colour tokens</h2>
+  <div class="swatches" id="sw"></div>
+  <h2 class="g">Data series &amp; ramp</h2>
+  <div class="swatches" id="ser"></div>
+
+  <h2 class="g">Typography</h2>
+  <div class="card type">
+    <p class="eyebrow">Eyebrow · IBM Plex Mono 12 uppercase</p>
+    <p style="font-weight:300;font-size:36px;line-height:1.15;margin:0"><b style="font-family:var(--font-display);font-weight:600">Display</b> Plex Sans Light 36–42</p>
+    <p style="font-family:var(--font-display);font-size:20px;font-weight:600">Section head · Plex Sans Condensed 20 / 600</p>
+    <p style="font-family:var(--font-display);font-size:16px;font-weight:600">Card title · Plex Sans Condensed 16 / 600</p>
+    <p>Body · Plex Sans 14 / 1.43 — use sentence case, short labels and units in brackets: Mounting height (m).</p>
+    <p class="helper">Helper · 12, helper colour — one-line explanations under fields.</p>
+    <p class="mono">Numbers · Plex Mono, tabular — 0.784 lx @ 10 m · 26 025 cd</p>
+  </div>
+
+  <h2 class="g">Buttons</h2>
+  <div class="card btn-row">
+    <button class="btn primary"><svg class="i"><use href="#icon-download"/></svg> Primary</button>
+    <button class="btn">Secondary</button>
+    <button class="btn tertiary">Tertiary</button>
+    <button class="btn ghost">Ghost</button>
+    <button class="btn danger"><svg class="i"><use href="#icon-trash"/></svg> Danger</button>
+    <button class="btn sm">Small</button>
+    <button class="btn" disabled>Disabled</button>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <h2 class="g" style="margin-bottom:16px">Panel, fields, drop zone</h2>
+      <details class="panel" open>
+        <summary><h2>Photometry</h2><svg class="i chev"><use href="#icon-chev"/></svg></summary>
+        <div class="pbody">
+          <label class="drop" id="dz"><input type="file"><span class="dt"><svg class="i"><use href="#icon-upload"/></svg> IES file</span><span class="fname" id="dzn">demo.ies</span><span class="dh">Drop a file here or click to browse</span></label>
+          <div class="field"><label for="a">Mounting height (m)</label><input id="a" type="number" value="0.65"></div>
+          <div class="field"><label for="b">Traffic</label><select id="b"><option>RHT (drive right)</option><option>LHT</option></select></div>
+          <div class="field"><label for="c">Invalid value</label><input id="c" type="number" value="-1" aria-invalid="true"></div>
+          <div class="field stack"><label for="d">Stacked field</label><input id="d" type="text" value="1.1, 2.2"></div>
+          <label class="check"><input type="checkbox" checked> Checkbox option</label>
+          <div class="field"><label>Segmented</label><div class="seg" role="group"><button aria-pressed="true">Log</button><button aria-pressed="false">Linear</button></div></div>
+          <p class="helper">Helper text under a group.</p>
+        </div>
+      </details>
+    </div>
+    <div>
+      <h2 class="g" style="margin-bottom:16px">Tags &amp; notices</h2>
+      <div class="card">
+        <div class="tags" style="margin-bottom:12px">
+          <span class="chip ok"><span class="dot"></span>Pass</span><span class="chip bad"><span class="dot"></span>Fail</span>
+          <span class="chip warn"><span class="dot"></span>Check</span><span class="chip info"><span class="dot"></span>Info</span>
+          <span class="chip">Neutral</span><span class="tag">UN R149</span><span class="tag">IES photometry</span>
+        </div>
+        <div class="notice warn">Warning — glare angle outside the model range between 10 and 15 m.</div>
+        <div class="notice bad">Error — candela table is incomplete.</div>
+        <div class="notice ok">Success — file loaded: 161 H × 251 V.</div>
+        <div class="notice info">Info — Type C file: check the forward C-plane.</div>
+        <span class="privacy"><svg class="i"><use href="#icon-lock"/></svg> Files are processed locally in your browser.</span>
+      </div>
+      <h2 class="g" style="margin-bottom:16px">Tabs</h2>
+      <div class="card">
+        <div class="tabs" role="tablist"><button role="tab" aria-selected="true">Low beam</button><button role="tab" aria-selected="false">High beam</button><button role="tab" aria-selected="false">Report</button></div>
+        <p class="muted" style="margin:0">Tab content.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="g">Result tiles &amp; KPIs</h2>
+  <div class="tiles" style="margin:0">
+    <div class="tile" style="--tile-c:var(--series-1)"><div class="t-head"><span class="sw" style="background:var(--series-1)"></span>Eye height 1.1 m</div>
+      <div class="row"><span class="k">Max E<sub>eye</sub></span><span class="v">2.16 lx <small>@ 10 m</small><span class="chip bad"><span class="dot"></span>Fail</span></span></div>
+      <div class="row"><span class="k">Min de Boer W</span><span class="v">4.09 <small>@ 12 m</small><span class="chip ok"><span class="dot"></span>Pass</span></span></div></div>
+    <div class="tile kpi" style="--tile-c:var(--series-2)"><div class="label">Peak intensity</div><div class="value">26 025 <small>cd</small></div><div class="delta">at 1.5° R, 1.6° D</div></div>
+    <div class="tile kpi" style="--tile-c:var(--cds-ok)"><div class="label">Regulation check</div><div class="value">34 / 34 <small>points</small></div><div class="delta">UN R149 Class C</div></div>
+  </div>
+
+  <h2 class="g">Toolbar &amp; data table</h2>
+  <div>
+    <div class="toolbar" style="margin-top:0"><button class="btn primary"><svg class="i"><use href="#icon-download"/></svg> Export CSV</button><button class="btn"><svg class="i"><use href="#icon-report"/></svg> PDF report</button><span class="note">B50L: 205 cd</span></div>
+    <div class="card flush"><div class="tablewrap"><table class="data"><tr><th>Point</th><th>H (°)</th><th>V (°)</th><th>I (cd)</th><th>Limit</th><th>Result</th></tr>
+      <tr><td>B50L</td><td>−3.43</td><td>0.57</td><td>205</td><td>≤ 350</td><td><span class="chip ok"><span class="dot"></span>Pass</span></td></tr>
+      <tr><td>75R</td><td>1.15</td><td>−0.57</td><td>18 400</td><td>≥ 10 100</td><td><span class="chip ok"><span class="dot"></span>Pass</span></td></tr>
+      <tr><td>Zone III</td><td>—</td><td>—</td><td>742</td><td>≤ 625</td><td><span class="chip bad"><span class="dot"></span>Fail</span></td></tr></table></div></div>
+  </div>
+
+  <h2 class="g">Icons <span class="muted" style="font-size:13px;font-weight:400">— &lt;svg class="i"&gt;&lt;use href="#icon-NAME"/&gt;&lt;/svg&gt;</span></h2>
+  <div class="icons" id="icons"></div>
+</main>
+
+<div class="wrap foot"><footer class="bk"><span>beamKit v1.0</span><span>© 2026 Jalib Akther</span><span>MIT License</span><a href="https://jalibakthermk.github.io/">More lighting tools →</a></footer></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const bk = window.beamKit;
+  const tok = ['--cds-background','--cds-layer-01','--cds-layer-02','--cds-text-primary','--cds-text-secondary','--cds-border-subtle','--cds-button-primary','--cds-link-primary','--cds-shell','--cds-cut','--cds-ok','--cds-bad','--cds-warn'];
+  function paint() {
+    document.getElementById('sw').innerHTML = tok.map(t => `<div class="swatch"><div style="background:var(${t})"></div><code>${t}<br>${bk.cssVar(t)}</code></div>`).join('');
+    document.getElementById('ser').innerHTML = [1,2,3,4,5,6].map(k => `<div class="swatch"><div style="background:var(--series-${k})"></div><code>--series-${k}<br>${bk.cssVar('--series-' + k)}</code></div>`).join('') +
+      `<div class="swatch" style="grid-column:span 2"><div style="background:linear-gradient(90deg,${[0,.17,.33,.5,.67,.83,1].map(t => bk.ramp(t)).join(',')})"></div><code>--ramp-1 … --ramp-7 · beamKit.ramp(t)</code></div>`;
+  }
+  document.getElementById('icons').innerHTML = bk.icons.map(n => `<div><svg class="i"><use href="#icon-${n}"/></svg>${n}</div>`).join('');
+  bk.dropZone('#dz', f => document.getElementById('dzn').textContent = f.name);
+  document.querySelectorAll('.seg').forEach(g => g.addEventListener('click', e => { if (e.target.tagName === 'BUTTON') g.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b === e.target)); }));
+  document.querySelectorAll('.tabs').forEach(g => g.addEventListener('click', e => { if (e.target.role === 'tab') g.querySelectorAll('[role=tab]').forEach(b => b.setAttribute('aria-selected', b === e.target)); }));
+  bk.theme.onChange(paint); paint();
+});
+</script>
+</body>
+</html>

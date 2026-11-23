@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+  beamKit starter page. Copy this file to a new repo as index.html, then search for "TODO".
+  It links the shared kit from the portfolio site, so every tool updates when beamKit does.
+  Working offline? Copy beamkit.css + beamkit.js next to this file and change the two URLs to "beamkit.css" / "beamkit.js".
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TOOLNAME — One-line purpose</title><!-- TODO -->
+<meta name="description" content="TODO: one sentence on what the tool does.">
+<meta name="theme-color" content="#0a0f2c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="https://jalibakthermk.github.io/beamkit/beamkit.css">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="https://jalibakthermk.github.io/beamkit/beamkit.js" defer></script>
+<style>
+  /* Tool-specific styles only. Use the --cds-* tokens; never hard-code colours. */
+</style>
+</head>
+<body>
+<a class="skip" href="#results">Skip to results</a>
+
+<!-- ── Shell bar ── -->
+<div class="shell">
+  <div class="wrap">
+    <a class="shell-name" href="https://jalibakthermk.github.io/"><img src="favicon.svg" alt="" width="24" height="24"> TOOLNAME <span class="crumb">· Jalib Akther</span></a>
+    <div class="shell-actions">
+      <a href="https://jalibakthermk.github.io/" title="All projects"><svg class="i"><use href="#icon-grid"/></svg> <span class="lbl">Projects</span></a>
+      <a href="https://github.com/jalibakthermk/REPO" title="Source code"><svg class="i"><use href="#icon-github"/></svg> <span class="lbl">Code</span></a><!-- TODO: REPO -->
+      <button type="button" data-bk-theme aria-label="Toggle light and dark theme" title="Toggle light / dark">
+        <svg class="i sun"><use href="#icon-sun"/></svg><svg class="i moon"><use href="#icon-moon"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Title band ── -->
+<header class="titleband">
+  <svg class="motif" viewBox="0 0 640 200" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <ellipse cx="420" cy="140" rx="210" ry="56"/><ellipse cx="420" cy="140" rx="150" ry="40"/><ellipse cx="420" cy="140" rx="92" ry="25"/><ellipse cx="420" cy="140" rx="44" ry="12"/>
+    <path class="cut" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M0 140H330L366 104H640"/>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">Headlamps · TOPIC · STANDARD</p><!-- TODO -->
+    <h1><b>TOOLNAME</b> Descriptive title <span class="ver">v0.1</span></h1><!-- TODO -->
+    <p class="sub">TODO: one or two sentences — what goes in, what comes out.</p>
+    <span class="privacy"><svg class="i"><use href="#icon-lock"/></svg> Files are processed locally in your browser — nothing is uploaded.</span>
+  </div>
+</header>
+
+<!-- ── Sidebar + results ── -->
+<div class="wrap layout">
+  <aside aria-label="Inputs">
+    <details class="panel" open>
+      <summary><h2>Input file</h2><svg class="i chev"><use href="#icon-chev"/></svg></summary>
+      <div class="pbody">
+        <label class="drop" id="drop1">
+          <input type="file" accept=".ies,.IES,.ldt,.txt">
+          <span class="dt"><svg class="i"><use href="#icon-upload"/></svg> IES file</span>
+          <span class="fname" id="fname1">No file — showing demo data</span>
+          <span class="dh">Drop a file here or click to browse</span>
+        </label>
+        <div class="notice bad" id="fileErr" hidden></div>
+      </div>
+    </details>
+
+    <details class="panel" open>
+      <summary><h2>Settings</h2><svg class="i chev"><use href="#icon-chev"/></svg></summary>
+      <div class="pbody">
+        <div class="field"><label for="h">Mounting height (m)</label><input id="h" type="number" step="0.01" value="0.65"></div>
+        <div class="field"><label for="mode">Traffic</label>
+          <select id="mode"><option>RHT</option><option>LHT</option></select></div>
+        <p class="helper">Helper text explains a field in one short line.</p>
+      </div>
+    </details>
+
+    <details class="panel">
+      <summary><h2>Limits (pass / fail)</h2><svg class="i chev"><use href="#icon-chev"/></svg></summary>
+      <div class="pbody">
+        <div class="field"><label for="lim">Max value</label><input id="lim" type="number" step="0.1" value="1"></div>
+      </div>
+    </details>
+  </aside>
+
+  <section class="main" id="results">
+    <div class="sec-head"><h2>Results</h2><p id="srcLine">Demo data</p></div>
+    <div class="tiles" id="tiles"></div>
+
+    <div class="charts">
+      <div class="card"><h3>Chart title</h3><div class="cap">Quantity (unit) vs distance</div>
+        <canvas id="c1"></canvas><div class="legend" id="lg1"></div><div class="tooltip" id="tt1"></div></div>
+      <div class="card"><h3>Second chart</h3><div class="cap">Caption</div>
+        <canvas id="c2"></canvas><div class="legend" id="lg2"></div></div>
+    </div>
+
+    <div class="toolbar">
+      <button type="button" class="btn primary" id="csvBtn"><svg class="i"><use href="#icon-download"/></svg> Export CSV</button>
+      <button type="button" class="btn" id="copyBtn"><svg class="i"><use href="#icon-copy"/></svg> <span>Copy CSV</span></button>
+      <span class="note" id="note">Status line in mono</span>
+    </div>
+
+    <div class="card">
+      <details class="method">
+        <summary>Method &amp; formulas <svg class="i chev"><use href="#icon-chev"/></svg></summary>
+        <div class="prose"><p><b>Model.</b> TODO: explain the calculation, its sources and its validity range.</p></div>
+      </details>
+    </div>
+  </section>
+</div>
+
+<div class="wrap foot">
+  <footer class="bk">
+    <span>TOOLNAME v0.1</span>
+    <span>© 2026 Jalib Akther</span>
+    <span><svg class="i"><use href="#icon-pin"/></svg> Thrissur, India</span>
+    <span>MIT License</span>
+    <a href="https://jalibakthermk.github.io/">More lighting tools →</a>
+    <span class="disc">Results are engineering estimates; check them against measured data before relying on them.</span>
+  </footer>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const bk = window.beamKit, $ = id => document.getElementById(id);
+  let data = demo();
+
+  // Demo data — TODO: replace with your parser/model
+  function demo() { const d = []; for (let x = 10; x <= 200; x += 2) d.push({ x, a: 3 * Math.exp(-x / 40), b: 2 * Math.exp(-x / 55) }); return d; }
+
+  bk.dropZone('#drop1', async file => {
+    try { const text = await bk.readText(file); /* data = parse(text); */ $('fname1').textContent = file.name; $('fileErr').hidden = true; render(); }
+    catch (e) { $('fileErr').textContent = file.name + ': ' + e.message; $('fileErr').hidden = false; }
+  });
+
+  function render() {
+    const lim = +$('lim').value, c = bk.colors();
+    const maxA = Math.max(...data.map(r => r.a)), maxB = Math.max(...data.map(r => r.b));
+    $('tiles').innerHTML = [['Series A', maxA, 0], ['Series B', maxB, 1]].map(([n, v, k]) =>
+      `<div class="tile" style="--tile-c:${c.series[k]}"><div class="t-head"><span class="sw" style="background:${c.series[k]}"></span>${n}</div>
+       <div class="row"><span class="k">Maximum</span><span class="v">${bk.fmt(v)} lx ${bk.chip(v <= lim)}</span></div></div>`).join('');
+    lineChart($('c1'), $('lg1'), lim);
+    lineChart($('c2'), $('lg2'), null);
+  }
+
+  // Minimal line chart using the kit's colours — copy and adapt
+  function lineChart(cv, lg, limit) {
+    const c = bk.colors(), { ctx, W, H } = bk.setupCanvas(cv);
+    const m = { l: 44, r: 12, t: 10, b: 34 }, pw = W - m.l - m.r, ph = H - m.t - m.b;
+    const x0 = data[0].x, x1 = data[data.length - 1].x, y1 = Math.max(...data.map(r => Math.max(r.a, r.b)), limit || 0) * 1.1;
+    const X = x => m.l + (x - x0) / (x1 - x0) * pw, Y = y => m.t + ph - y / y1 * ph;
+    ctx.font = c.font; ctx.fillStyle = c.helper; ctx.strokeStyle = c.grid; ctx.lineWidth = 1;
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    for (const t of bk.niceTicks(0, y1)) { const y = Math.round(Y(t)) + .5; ctx.beginPath(); ctx.moveTo(m.l, y); ctx.lineTo(m.l + pw, y); ctx.stroke(); ctx.fillText(t, m.l - 6, y); }
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (const t of bk.niceTicks(x0, x1, 6)) ctx.fillText(t, X(t), m.t + ph + 6);
+    ctx.fillText('Distance (m)', m.l + pw / 2, m.t + ph + 20);
+    if (limit != null) { ctx.save(); ctx.setLineDash([5, 4]); ctx.strokeStyle = c.bad; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(m.l, Y(limit)); ctx.lineTo(m.l + pw, Y(limit)); ctx.stroke(); ctx.restore(); }
+    ['a', 'b'].forEach((k, i) => { ctx.strokeStyle = c.series[i]; ctx.lineWidth = 2; ctx.beginPath(); data.forEach((r, j) => j ? ctx.lineTo(X(r.x), Y(r[k])) : ctx.moveTo(X(r.x), Y(r[k]))); ctx.stroke(); });
+    lg.innerHTML = `<span><i style="background:${c.series[0]}"></i>Series A</span><span><i style="background:${c.series[1]}"></i>Series B</span>` +
+      (limit != null ? `<span><i style="background:${c.bad}"></i>Limit</span>` : '');
+  }
+
+  const toCSV = () => 'x,a,b\n' + data.map(r => [r.x, r.a, r.b].join(',')).join('\n');
+  $('csvBtn').onclick = () => bk.download('TOOLNAME_results.csv', toCSV(), 'text/csv');
+  $('copyBtn').onclick = e => bk.copy(toCSV(), e.currentTarget);
+  document.querySelectorAll('aside input, aside select').forEach(el => el.addEventListener('input', bk.debounce(render, 150)));
+  bk.theme.onChange(render);                                   // redraw canvases on theme change / font load
+  window.addEventListener('resize', bk.debounce(render, 120));
+  render();
+});
+</script>
+</body>
+</html>
